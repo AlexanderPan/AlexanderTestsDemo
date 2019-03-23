@@ -16,7 +16,8 @@ class ViewModel: NSObject {
     var disposeBag = DisposeBag()
     private let contactsRepository:ContactsRepository
     
-    var arraySubject:BehaviorSubject<Array<Contacts>?> = BehaviorSubject.init(value: nil)
+    
+    var arraySubject:BehaviorSubject<Array<Contacts>> = BehaviorSubject.init(value: Array())
     
     var progressSubject:BehaviorSubject<Bool> = BehaviorSubject.init(value: false)
     
@@ -58,10 +59,10 @@ class ViewModel: NSObject {
                 self.progressSubject.onNext(false)
                 
             }, onError: { (error) in
-                
                 self.errorSubject.onNext(error.localizedDescription)
                 
             }, onCompleted: {
+                
                 
             }) {
                 

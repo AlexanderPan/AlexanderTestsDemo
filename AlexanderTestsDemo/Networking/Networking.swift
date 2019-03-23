@@ -23,16 +23,16 @@ class Networking {
             
             // success
             let response = ContactsResponse.init(contacts: self.makeAPIContactsArray())
-            
+
             obserable.onNext(response)
             obserable.onCompleted()
             
-            // fail
+//             fail
 //            obserable.onError(NSError.init(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey:"connection time out."]))
-            
+//
             return Disposables.create()
             
-        }.subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+        }.delay(3, scheduler: SerialDispatchQueueScheduler(qos: .background)).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
         
     }
     
@@ -41,11 +41,11 @@ class Networking {
         
         var array = Array<Contacts>()
         
-        array.append(Contacts.init(name: "Steven Paul Jobs", age: 50, phoneNumber: "0912345678", image: "https://cdn2.techbang.com/system/excerpt_images/6810/inpage/2e50241b1b8e2b0ceaa4cf29e7e1c8ee.jpg?1314238302"))
+        array.append(Contacts.init(name: "vicky", age: 50, phoneNumber: "0912345678", image: "icon2"))
         
-        array.append(Contacts.init(name: "Tim Cook", age: 99, phoneNumber: "0912345679", image: "https://www.apple.com/leadership/overview/meta/og.png?201902051735"))
+        array.append(Contacts.init(name: "alex", age: 99, phoneNumber: "0912345679", image: "icon3"))
         
-        array.append(Contacts.init(name: "Jeff Bezos", age: 99, phoneNumber: "0912345677", image: "http://img.ltn.com.tw/Upload/liveNews/BigPic/600_phpeemmWp.jpg"))
+        array.append(Contacts.init(name: "jason", age: 99, phoneNumber: "0912345677", image: "icon4"))
         
         
         

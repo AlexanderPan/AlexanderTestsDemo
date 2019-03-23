@@ -20,13 +20,15 @@ class Database {
         
         // success
         var array = Array<Contacts>()
-        array.append(Contacts.init(name: "周杰倫", age: 20, phoneNumber: "0912315678", image: "http://resource.holyshare.com.tw/uploads/article/600x0/142226752471S_1.png"))
-        array.append(Contacts.init(name: "蔡依林", age: 99, phoneNumber: "0912340679", image: "http://resource.holyshare.com.tw/uploads/article/600x0/142226752471S_1.png"))
-        return Observable.just(array)
+        array.append(Contacts.init(name: "Tiffany", age: 20, phoneNumber: "0912315678", image: "icon0"))
+        array.append(Contacts.init(name: "iris", age: 99, phoneNumber: "0912340679", image: "icon1"))
         
+        return Observable.just(array).delay(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
+
+//
+//        // fail
+//        return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"db connection error"]))
         
-        // fail
-//        return Observable.onError(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"db connection error"]))
         
 
     }
