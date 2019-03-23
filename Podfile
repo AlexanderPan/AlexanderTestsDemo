@@ -11,6 +11,7 @@ target 'AlexanderTestsDemo' do
     pod 'SwiftyJSON', '~> 4.2.0'
     pod 'Reusable', '~> 4.0.5'
     pod 'Kingfisher', '~> 4.1.1'
+    pod 'SVProgressHUD'
   # Pods for AlexanderTestsDemo
 
   target 'AlexanderTestsDemoTests' do
