@@ -52,13 +52,13 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
 
 class ContactsRepository : NSObject {
     
-    var implement:ContactsRepositoryImplement
+    var implement:ContactsRepositoryDelegate
     
     public static let shareInstance = ContactsRepository.init(implement: ContactsRepositoryImplement.init())
     
     
     
-    init(implement:ContactsRepositoryImplement) {
+    init(implement:ContactsRepositoryDelegate) {
         self.implement = implement
         super.init()
     }

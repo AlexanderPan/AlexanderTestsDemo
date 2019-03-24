@@ -21,7 +21,7 @@ class Database {
         // success
         var array = Array<Contacts>()
         array.append(Contacts.init(name: "Tiffany", age: 20, phoneNumber: "0912315678", image: "icon0"))
-        array.append(Contacts.init(name: "iris", age: 99, phoneNumber: "0912340679", image: "icon1"))
+        array.append(Contacts.init(name: "Iris", age: 99, phoneNumber: "0912340679", image: "icon1"))
         
         return Observable.just(array).delay(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
 

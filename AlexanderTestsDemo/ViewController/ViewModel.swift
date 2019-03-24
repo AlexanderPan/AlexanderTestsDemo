@@ -50,6 +50,12 @@ class ViewModel: NSObject {
             for item in contactsResponse.contacts {
                 newArray.append(item)
             }
+
+            
+            newArray = newArray.sorted(by: {
+                $0.name < $1.name
+            })
+
             
             return newArray
             

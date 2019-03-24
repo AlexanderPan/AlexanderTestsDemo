@@ -41,11 +41,11 @@ class Networking {
         
         var array = Array<Contacts>()
         
-        array.append(Contacts.init(name: "vicky", age: 50, phoneNumber: "0912345678", image: "icon2"))
+        array.append(Contacts.init(name: "Vicky", age: 50, phoneNumber: "0912345678", image: "icon2"))
         
-        array.append(Contacts.init(name: "alex", age: 99, phoneNumber: "0912345679", image: "icon3"))
+        array.append(Contacts.init(name: "Alex", age: 99, phoneNumber: "0912345679", image: "icon3"))
         
-        array.append(Contacts.init(name: "jason", age: 99, phoneNumber: "0912345677", image: "icon4"))
+        array.append(Contacts.init(name: "Jason", age: 99, phoneNumber: "0912345677", image: "icon4"))
         
         
         

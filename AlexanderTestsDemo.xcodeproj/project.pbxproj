@@ -14,7 +14,6 @@
 		76D07A5A2245F62B0089C18A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D07A582245F62B0089C18A /* Main.storyboard */; };
 		76D07A5C2245F62D0089C18A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D07A5B2245F62D0089C18A /* Assets.xcassets */; };
 		76D07A5F2245F62D0089C18A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D07A5D2245F62D0089C18A /* LaunchScreen.storyboard */; };
-		76D07A6A2245F62E0089C18A /* AlexanderTestsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A692245F62E0089C18A /* AlexanderTestsDemoTests.swift */; };
 		76D07A752245F62E0089C18A /* AlexanderTestsDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A742245F62E0089C18A /* AlexanderTestsDemoUITests.swift */; };
 		76D07A832245F8540089C18A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A822245F8540089C18A /* ViewModel.swift */; };
 		76D07A8C2245F9DB0089C18A /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A8B2245F9DB0089C18A /* ContactsRepository.swift */; };
@@ -25,6 +24,14 @@
 		76D07A9C2245FB660089C18A /* ContactsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A9B2245FB660089C18A /* ContactsRequest.swift */; };
 		76D07A9E224609450089C18A /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A9D224609450089C18A /* Cell.swift */; };
 		76D07AA02247425B0089C18A /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A9F2247425A0089C18A /* ContactsViewController.swift */; };
+		76D07AA1224749580089C18A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A822245F8540089C18A /* ViewModel.swift */; };
+		76D07AA4224749BC0089C18A /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A8B2245F9DB0089C18A /* ContactsRepository.swift */; };
+		76D07AA5224749BE0089C18A /* ContactsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A992245FB4C0089C18A /* ContactsResponse.swift */; };
+		76D07AA6224749C00089C18A /* ContactsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A9B2245FB660089C18A /* ContactsRequest.swift */; };
+		76D07AA7224749C20089C18A /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A952245FACC0089C18A /* Contacts.swift */; };
+		76D07AA822474A090089C18A /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A932245FA5D0089C18A /* Database.swift */; };
+		76D07AA922474A0B0089C18A /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07A912245FA520089C18A /* Networking.swift */; };
+		76D07AAB22474C910089C18A /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D07AAA22474C910089C18A /* ViewModelTests.swift */; };
 		B3E8C93D0C90FA460886C122 /* Pods_AlexanderTestsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A34165F6EACD1BE6AA8FB3 /* Pods_AlexanderTestsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +64,6 @@
 		76D07A5E2245F62D0089C18A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76D07A602245F62D0089C18A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D07A652245F62E0089C18A /* AlexanderTestsDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexanderTestsDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76D07A692245F62E0089C18A /* AlexanderTestsDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexanderTestsDemoTests.swift; sourceTree = "<group>"; };
 		76D07A6B2245F62E0089C18A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D07A702245F62E0089C18A /* AlexanderTestsDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlexanderTestsDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D07A742245F62E0089C18A /* AlexanderTestsDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlexanderTestsDemoUITests.swift; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 		76D07A9B2245FB660089C18A /* ContactsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRequest.swift; sourceTree = "<group>"; };
 		76D07A9D224609450089C18A /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		76D07A9F2247425A0089C18A /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		76D07AAA22474C910089C18A /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		7B20BD174AB1AB32AC769EC1 /* Pods-AlexanderTestsDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexanderTestsDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlexanderTestsDemoUITests/Pods-AlexanderTestsDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A191AEB4C906F9E4CE3D2C2F /* Pods_AlexanderTestsDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlexanderTestsDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFDC09EFC118BBD51CDD995 /* Pods-AlexanderTestsDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlexanderTestsDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlexanderTestsDemoUITests/Pods-AlexanderTestsDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +169,7 @@
 		76D07A682245F62E0089C18A /* AlexanderTestsDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				76D07A692245F62E0089C18A /* AlexanderTestsDemoTests.swift */,
+				76D07AAA22474C910089C18A /* ViewModelTests.swift */,
 				76D07A6B2245F62E0089C18A /* Info.plist */,
 			);
 			path = AlexanderTestsDemoTests;
@@ -490,7 +497,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76D07A6A2245F62E0089C18A /* AlexanderTestsDemoTests.swift in Sources */,
+				76D07AAB22474C910089C18A /* ViewModelTests.swift in Sources */,
+				76D07AA1224749580089C18A /* ViewModel.swift in Sources */,
+				76D07AA7224749C20089C18A /* Contacts.swift in Sources */,
+				76D07AA922474A0B0089C18A /* Networking.swift in Sources */,
+				76D07AA4224749BC0089C18A /* ContactsRepository.swift in Sources */,
+				76D07AA6224749C00089C18A /* ContactsRequest.swift in Sources */,
+				76D07AA822474A090089C18A /* Database.swift in Sources */,
+				76D07AA5224749BE0089C18A /* ContactsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
