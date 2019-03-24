@@ -43,9 +43,9 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-  
-
-        self.viewModel.loadContacts()
+        self.navigationController?.navigationBar.isHidden = false
+        self.title = "聯絡人列表"
+        
     }
 
     func initView() {
@@ -96,6 +96,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             
         }).disposed(by: self.viewModel.disposeBag)
       
+        self.viewModel.loadContacts()
 
     }
     
@@ -116,6 +117,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 
     }
 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let viewController = ContactsViewController.init(contacts: array[indexPath.row])
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+    }
 
 
 

@@ -29,7 +29,7 @@ class Networking {
             
 //             fail
 //            obserable.onError(NSError.init(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey:"connection time out."]))
-//
+
             return Disposables.create()
             
         }.delay(3, scheduler: SerialDispatchQueueScheduler(qos: .background)).subscribeOn(SerialDispatchQueueScheduler(qos: .background))
