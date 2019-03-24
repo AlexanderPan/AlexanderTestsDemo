@@ -8,13 +8,14 @@
 
 import Foundation
 
-class ContactsRequest: NSObject {
+class ContactsRequest: NSObject , Decodable{
 
     var memeber_token:String
     
     init(memeber_token:String) {
         self.memeber_token = memeber_token
         super.init()
+        
         
         
         

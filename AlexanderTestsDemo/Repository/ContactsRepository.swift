@@ -36,15 +36,56 @@ extension ContactsRepositoryDelegate {
 class ContactsRepositoryImplement : ContactsRepositoryDelegate {
    
     
+    public func checkFunctionReplaceObject<T>(_ type: T.Type,functionName:String) -> T? where T : Decodable{
+        
+        let responseText:String? = ProcessInfo.processInfo.environment["\(functionName)"]
+        
+        if responseText != nil {
+            
+            let toResponse = try! JSONDecoder().decode(T.self, from: responseText!.toDictionaryToData())
+            
+            
+            return toResponse
+            
+        }
+        
+        return nil
+        
+    }
+    
     private let database = Database.shareInstance
     private let networking = Networking.shareInstance
     
     
     func contactsListAPI(request: ContactsRequest) -> Observable<ContactsResponse> {
+        
+       
+         print("\(#function)")
+        
+        #if UITESTS
+        if let obj = self.checkFunctionReplaceObject(ContactsResponse.self, functionName: "\(#function)") {
+            return Observable.just(obj)
+        } else {
+            return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"ui test api connection fail"]))
+        }
+        #endif
+        
+        
         return networking.contactsListAPI(request:request)
     }
     
     func queryContacts() -> Observable<Array<Contacts>> {
+        
+         print("\(#function)")
+        
+        #if UITESTS
+        if let obj = self.checkFunctionReplaceObject(ContactsResponse.self, functionName: "\(#function)") {
+            return Observable.just(obj.contacts)
+        } else {
+            return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"ui test db connection fail"]))
+        }
+        #endif
+
         return database.queryContacts()
     }
     

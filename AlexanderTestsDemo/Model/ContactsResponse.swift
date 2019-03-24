@@ -9,7 +9,7 @@
 import Foundation
 
 
-class ContactsResponse : NSObject {
+class ContactsResponse : Decodable {
     
 
 
@@ -17,7 +17,7 @@ class ContactsResponse : NSObject {
     
     init(contacts:Array<Contacts>) {
         self.contacts = contacts
-        super.init()
+        
         
         
         

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Contacts : NSObject{
+class Contacts : Decodable{
 
     var name:String
     var age:Int
@@ -21,7 +21,7 @@ class Contacts : NSObject{
         self.age = age
         self.phoneNumber = phoneNumber
         self.image = image
-        super.init()
+        
         
         
         
