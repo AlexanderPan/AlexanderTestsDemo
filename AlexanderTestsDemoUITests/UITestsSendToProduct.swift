@@ -26,13 +26,9 @@ extension Array {
     
     func toDataToString() throws -> String? {
         
-        
-        
         //        dic -> data -> **string**
         
         let data = try JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
-        
-        print("dic = \(String.init(data: data, encoding: .utf8))")
         
         return String.init(data: data, encoding: .utf8)
         
@@ -46,13 +42,9 @@ extension Dictionary {
     
     func toDataToString() throws -> String? {
         
-        
-        
         //        dic -> data -> **string**
         
         let data = try JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
-        
-        print("dic = \(String.init(data: data, encoding: .utf8))")
         
         return String.init(data: data, encoding: .utf8)
         
@@ -72,6 +64,28 @@ extension String {
             }
         }
         return nil
+    }
+    
+    private func convertToArray() -> [Any]? {
+        if let data = self.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+    
+    func toArrayToData() -> Data {
+        
+        //        **string** -> dic -> data
+        
+        let array:Array = self.convertToArray()!
+        
+        let data = try! JSONSerialization.data(withJSONObject: array, options: JSONSerialization.WritingOptions.prettyPrinted)
+        
+        return data
     }
     
     

@@ -42,6 +42,7 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
         
         if responseText != nil {
             
+     
             let toResponse = try! JSONDecoder().decode(T.self, from: responseText!.toDictionaryToData())
             
             
@@ -52,6 +53,26 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
         return nil
         
     }
+    
+    public func checkFunctionReplaceArray<T>(_ type: T.Type,functionName:String) -> T? where T : Decodable{
+        
+        let responseText:String? = ProcessInfo.processInfo.environment["\(functionName)"]
+        
+        if responseText != nil {
+            
+            
+            let toResponse = try! JSONDecoder().decode(T.self, from: responseText!.toArrayToData())
+            
+            
+            return toResponse
+            
+        }
+        
+        return nil
+        
+    }
+    
+    
     
     private let database = Database.shareInstance
     private let networking = Networking.shareInstance
@@ -68,25 +89,29 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
         } else {
             return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"ui test api connection fail"]))
         }
+        #else
+        
+        return networking.contactsListAPI(request:request)
         #endif
         
         
-        return networking.contactsListAPI(request:request)
+        
     }
     
     func queryContacts() -> Observable<Array<Contacts>> {
-        
-         print("\(#function)")
+
         
         #if UITESTS
-        if let obj = self.checkFunctionReplaceObject(ContactsResponse.self, functionName: "\(#function)") {
-            return Observable.just(obj.contacts)
+        if let obj = self.checkFunctionReplaceArray([Contacts].self, functionName: "\(#function)") {
+            return Observable.just(obj)
         } else {
             return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"ui test db connection fail"]))
         }
+        #else
+        return database.queryContacts()
         #endif
 
-        return database.queryContacts()
+        
     }
     
 }

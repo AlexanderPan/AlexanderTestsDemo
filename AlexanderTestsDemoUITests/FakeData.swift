@@ -11,10 +11,6 @@ import Foundation
 
 class FakeData {
 
-//    var name:String
-//    var age:Int
-//    var phoneNumber:String
-//    var image:String
     
     static func api_contactsListAPI_success() -> String {
         
@@ -69,21 +65,10 @@ class FakeData {
         contacts1.updateValue("0911111116", forKey: "phoneNumber")
         contacts1.updateValue("icon4", forKey: "image")
         
-
-        
         contacts.append(contacts0)
         contacts.append(contacts1)
-        
-        
 
-        
-        var response = Dictionary<String, Any>()
-        response.updateValue(contacts, forKey: "contacts")
-        
-        
-        return try! response.toDataToString()!
-        
-        
+        return try! contacts.toDataToString()!
         
     }
 

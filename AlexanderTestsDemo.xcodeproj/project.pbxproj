@@ -188,9 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				76D07A742245F62E0089C18A /* AlexanderTestsDemoUITests.swift */,
-				76D07A762245F62E0089C18A /* Info.plist */,
 				76D07AAC224751AF0089C18A /* UITestsSendToProduct.swift */,
 				76D07AB9224753FE0089C18A /* FakeData.swift */,
+				76D07A762245F62E0089C18A /* Info.plist */,
 			);
 			path = AlexanderTestsDemoUITests;
 			sourceTree = "<group>";
