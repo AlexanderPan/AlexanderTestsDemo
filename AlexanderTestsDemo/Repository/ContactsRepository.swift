@@ -36,7 +36,7 @@ extension ContactsRepositoryDelegate {
 class ContactsRepositoryImplement : ContactsRepositoryDelegate {
    
     
-    public func checkFunctionReplaceObject<T>(_ type: T.Type,functionName:String) -> T? where T : Decodable{
+    public func checkFunctionToObject<T>(_ type: T.Type,functionName:String) -> T? where T : Decodable{
         
         let responseText:String? = ProcessInfo.processInfo.environment["\(functionName)"]
         
@@ -54,7 +54,7 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
         
     }
     
-    public func checkFunctionReplaceArray<T>(_ type: T.Type,functionName:String) -> T? where T : Decodable{
+    public func checkFunctionToArray<T>(_ type: T.Type,functionName:String) -> T? where T : Decodable{
         
         let responseText:String? = ProcessInfo.processInfo.environment["\(functionName)"]
         
@@ -80,20 +80,13 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
     
     func contactsListAPI(request: ContactsRequest) -> Observable<ContactsResponse> {
         
-       
-         print("\(#function)")
         
         #if UITESTS
-        if let obj = self.checkFunctionReplaceObject(ContactsResponse.self, functionName: "\(#function)") {
+        if let obj = self.checkFunctionToObject(ContactsResponse.self, functionName: "\(#function)") {
             return Observable.just(obj)
-        } else {
-            return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"ui test api connection fail"]))
         }
-        #else
-        
-        return networking.contactsListAPI(request:request)
         #endif
-        
+        return networking.contactsListAPI(request:request)
         
         
     }
@@ -102,15 +95,11 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
 
         
         #if UITESTS
-        if let obj = self.checkFunctionReplaceArray([Contacts].self, functionName: "\(#function)") {
+        if let obj = self.checkFunctionToArray([Contacts].self, functionName: "\(#function)") {
             return Observable.just(obj)
-        } else {
-            return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"ui test db connection fail"]))
         }
-        #else
-        return database.queryContacts()
         #endif
-
+        return database.queryContacts()
         
     }
     

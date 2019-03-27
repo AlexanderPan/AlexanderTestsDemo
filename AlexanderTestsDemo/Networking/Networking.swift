@@ -18,9 +18,7 @@ class Networking {
         
         return Observable<ContactsResponse>.create { (obserable) -> Disposable in
             
-            
             //假裝 Call API ^o^
-            
             // success
             let response = ContactsResponse.init(contacts: self.makeAPIContactsArray())
 

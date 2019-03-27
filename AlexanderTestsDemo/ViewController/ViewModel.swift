@@ -51,7 +51,7 @@ class ViewModel: NSObject {
                 newArray.append(item)
             }
 
-            
+    
             newArray = newArray.sorted(by: {
                 $0.name < $1.name
             })
@@ -65,6 +65,7 @@ class ViewModel: NSObject {
                 self.progressSubject.onNext(false)
                 
             }, onError: { (error) in
+                
                 self.errorSubject.onNext(error.localizedDescription)
                 
             }, onCompleted: {

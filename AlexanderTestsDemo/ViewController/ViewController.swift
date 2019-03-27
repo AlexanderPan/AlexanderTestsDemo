@@ -88,12 +88,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             
         }).disposed(by: self.viewModel.disposeBag)
 
-        self.viewModel.arraySubject.observeOn(MainScheduler.instance).subscribe(onNext: { (array) in
+        self.viewModel.arraySubject.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (array) in
             
+            if let strongSelf = self {
+                strongSelf.array = array
+                strongSelf.tableView .reloadData()
+            }
             
-            self.array = array
-            self.tableView .reloadData()
-
             
         }).disposed(by: self.viewModel.disposeBag)
       
