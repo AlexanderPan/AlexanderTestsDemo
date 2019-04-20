@@ -74,8 +74,14 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
     
     
     
-    private let database = Database.shareInstance
-    private let networking = Networking.shareInstance
+    private var database:Database
+    private var networking:Networking
+    
+    init(networking:Networking = Networking.shareInstance , database:Database = Database.shareInstance) {
+        self.database = database
+        self.networking = networking
+        
+    }
     
     
     func contactsListAPI(request: ContactsRequest) -> Observable<ContactsResponse> {
@@ -109,13 +115,27 @@ class ContactsRepository : NSObject {
     
     var implement:ContactsRepositoryDelegate
     
+    
+    
+    #if TESTS
+    public static let shareInstance = ContactsRepository.init(implement: EmptyImplement.init())
+    #else
     public static let shareInstance = ContactsRepository.init(implement: ContactsRepositoryImplement.init())
+    #endif
+    
+    
+    
+    
+    
+    
+    
     
     
     
     init(implement:ContactsRepositoryDelegate) {
         self.implement = implement
         super.init()
+       
     }
     
     
@@ -128,5 +148,9 @@ class ContactsRepository : NSObject {
         return self.implement.queryContacts()
     }
     
+    
+}
+
+class EmptyImplement : ContactsRepositoryDelegate {
     
 }

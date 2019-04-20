@@ -13,7 +13,7 @@ target 'AlexanderTestsDemo' do
     pod 'SnapKit', '~> 4.2.0'
     pod 'SwiftyJSON', '~> 4.2.0'
     pod 'Reusable', '~> 4.0.5'
-    pod 'Kingfisher', '~> 4.1.1'
+    pod 'Kingfisher', '~> 4.10.0'
     pod 'SVProgressHUD'
   # Pods for AlexanderTestsDemo
 
@@ -40,13 +40,8 @@ post_install do |installer|
     
     
     installer.pods_project.targets.each do |target|
-        if ['Kingfisher'].include? target.name
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '4'
-            end
-        end
-        
-        if ['RxBlocking','RxTest'].include? target.name
+   
+        if ['RxBlocking','RxTest','Kingfisher'].include? target.name
             target.build_configurations.each do |config|
                 config.build_settings['SWIFT_VERSION'] = '4.2'
             end

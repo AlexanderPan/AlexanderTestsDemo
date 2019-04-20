@@ -12,6 +12,20 @@ import Foundation
 class FakeData {
 
     
+    static func api_contactsListAPI_error() -> String {
+        
+        let contacts = Array<Dictionary<String, Any>>()
+       
+        
+        var response = Dictionary<String, Any>()
+        response.updateValue(contacts, forKey: "contacts")
+        response.updateValue(999, forKey: "statusCode")
+        
+        return try! response.toDataToString()!
+        
+    }
+    
+    
     static func api_contactsListAPI_success() -> String {
         
         var contacts = Array<Dictionary<String, Any>>()
@@ -42,6 +56,7 @@ class FakeData {
         
         var response = Dictionary<String, Any>()
         response.updateValue(contacts, forKey: "contacts")
+        response.updateValue(200, forKey: "statusCode")
         
         
         return try! response.toDataToString()!

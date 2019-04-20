@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , ContactsRepositoryDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        SVProgressHUD.setBackgroundLayerColor(UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1))
+        SVProgressHUD.setDefaultMaskType(.custom)
+       
+        
         // Override point for customization after application launch.
         return true
     }

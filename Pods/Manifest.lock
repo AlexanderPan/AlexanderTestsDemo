@@ -1,5 +1,5 @@
 PODS:
-  - Kingfisher (4.1.1)
+  - Kingfisher (4.10.1)
   - Reusable (4.0.5):
     - Reusable/Storyboard (= 4.0.5)
     - Reusable/View (= 4.0.5)
@@ -15,7 +15,7 @@ PODS:
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - Kingfisher (~> 4.1.1)
+  - Kingfisher (~> 4.10.0)
   - Reusable (~> 4.0.5)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -35,7 +35,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Kingfisher: 6793a473357b5dbee42b0068ef203fe8325f259e
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
@@ -44,6 +44,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 76634d7f68de8f760325622d1c95864cba42612e
+PODFILE CHECKSUM: e9bcdf3001aae6faa2163a61e6028a8aa0327a5b
 
 COCOAPODS: 1.5.3

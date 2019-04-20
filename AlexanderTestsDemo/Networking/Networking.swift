@@ -20,7 +20,7 @@ class Networking {
             
             //假裝 Call API ^o^
             // success
-            let response = ContactsResponse.init(contacts: self.makeAPIContactsArray())
+            let response = ContactsResponse.init(contacts: self.makeAPIContactsArray() , statusCode: 200)
 
             obserable.onNext(response)
             obserable.onCompleted()

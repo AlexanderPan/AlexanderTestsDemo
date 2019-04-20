@@ -18,9 +18,9 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     
 
-    private let viewModel = ViewModel.init(contactsRepository: ContactsRepository.shareInstance)
+    private let viewModel = ViewModel.init()
 
-    private var array = Array<Contacts>()
+    
 
     lazy var tableView:UITableView = {
 
@@ -73,12 +73,15 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         
         self.viewModel.errorSubject.observeOn(MainScheduler.instance).subscribe(onNext: { (string) in
             
-               SVProgressHUD.showError(withStatus: string)
+            
+            
+            SVProgressHUD.showError(withStatus: string)
             
         }).disposed(by: self.viewModel.disposeBag)
     
 
         self.viewModel.progressSubject.observeOn(MainScheduler.instance).subscribe(onNext: { (progress) in
+            
             
             if progress {
                 SVProgressHUD.show()
@@ -88,10 +91,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             
         }).disposed(by: self.viewModel.disposeBag)
 
-        self.viewModel.arraySubject.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (array) in
+        self.viewModel.cellViewObjectsSubject.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (cellViewObjects) in
             
             if let strongSelf = self {
-                strongSelf.array = array
+                strongSelf.viewModel.cellViewObjects = cellViewObjects
                 strongSelf.tableView .reloadData()
             }
             
@@ -106,7 +109,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return array.count
+        return self.viewModel.cellViewObjects.count
 
     }
 
@@ -114,7 +117,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 
         let cell:Cell =
             tableView.dequeueReusableCell(for: indexPath)
-        cell.updateValue(cotacts: array[indexPath.row])
+        cell.updateValue(cotacts: self.viewModel.cellViewObjects[indexPath.row])
         return cell
 
     }
@@ -122,7 +125,9 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let viewController = ContactsViewController.init(contacts: array[indexPath.row])
+        
+        let viewController = ContactsViewController.init(contacts: self.viewModel.cellViewObjects[indexPath.row])
+        
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }

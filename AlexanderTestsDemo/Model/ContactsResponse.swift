@@ -13,14 +13,16 @@ class ContactsResponse : Decodable {
     
 
 
-    var contacts:Array<Contacts>
+    let contacts:Array<Contacts>
+    let statusCode:Int
     
-    init(contacts:Array<Contacts>) {
+    init(contacts:Array<Contacts> , statusCode:Int) {
         self.contacts = contacts
-        
+        self.statusCode = statusCode
         
         
         
     }
+    
     
 }
