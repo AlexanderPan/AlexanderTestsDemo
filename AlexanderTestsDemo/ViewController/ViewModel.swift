@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Foundation
 
-class ViewModel: NSObject {
+class ViewModel {
 
     var disposeBag = DisposeBag()
     private let contactsRepository:ContactsRepository
@@ -29,8 +29,6 @@ class ViewModel: NSObject {
     
     init(contactsRepository:ContactsRepository = ContactsRepository.shareInstance) {
         self.contactsRepository = contactsRepository
-        super.init()
-        
         
         
         
@@ -40,38 +38,26 @@ class ViewModel: NSObject {
         
         self.progressSubject.onNext(true)
         Observable.zip(contactsRepository.contactsListAPI(request: ContactsRequest.init(memeber_token: "fake_toke")),contactsRepository.queryContacts()) { contactsResponse , array -> (Array<Contacts> , Int) in
-            
                 
                 var contacts = Array<Contacts>();
-                
                 for item in array {
                     contacts.append(item)
                 }
-                
                 for item in contactsResponse.contacts {
                     contacts.append(item)
                 }
-                
-                
                 contacts = contacts.sorted(by: {
                     $0.name < $1.name
                 })
-                
-                
                 return (contacts , contactsResponse.statusCode)
-        
-            
             
             }.flatMap({ (contacts ,  statusCode) -> Observable<Array<Contacts>> in
                 
                 if statusCode == 200 {
                     return Observable.just(contacts)
                 } else {
-                    
                     return Observable.error(NSError.init(domain: "", code: statusCode, userInfo: [NSLocalizedDescriptionKey:"api error (\(statusCode))"]))
-                    
                 }
-                
                 
             }).subscribe(onNext: {
                 contacts  in

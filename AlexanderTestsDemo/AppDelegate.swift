@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , ContactsRepositoryDelega
         SVProgressHUD.setBackgroundLayerColor(UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1))
         SVProgressHUD.setDefaultMaskType(.custom)
        
+        UIView.setAnimationsEnabled(false)
         
         // Override point for customization after application launch.
         return true

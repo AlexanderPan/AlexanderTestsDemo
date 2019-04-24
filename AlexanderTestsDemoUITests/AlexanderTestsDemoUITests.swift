@@ -47,6 +47,10 @@ class AlexanderTestsDemoUITests: XCTestCase {
         let cell0 = cells.element(boundBy: 0)
         XCTAssertTrue(cell0.images["icon1"].exists)
         XCTAssertTrue(cell0.staticTexts["A - UI測試複製人"].exists)
+        print("\(self.app.debugDescription)")
+        
+
+        
         cell0.tap()
         XCTAssertTrue(self.app.navigationBars["聯絡人詳細資料"].exists)
         XCTAssertTrue(self.app.staticTexts["A - UI測試複製人"].exists)

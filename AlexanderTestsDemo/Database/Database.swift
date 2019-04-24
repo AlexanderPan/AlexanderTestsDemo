@@ -16,7 +16,7 @@ class Database {
     
     func queryContacts() -> Observable<Array<Contacts>> {
         
-        //假裝 Query DB ^o^
+        //假裝... Query DB
         
         // success
         var array = Array<Contacts>()
@@ -25,7 +25,7 @@ class Database {
         
         return Observable.just(array).delay(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
 
-//
+
 //        // fail
 //        return Observable.error(NSError.init(domain: "", code: 300, userInfo: [NSLocalizedDescriptionKey:"db connection error"]))
         

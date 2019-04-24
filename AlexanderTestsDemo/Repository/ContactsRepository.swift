@@ -84,6 +84,7 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
     }
     
     
+    
     func contactsListAPI(request: ContactsRequest) -> Observable<ContactsResponse> {
         
         
@@ -111,7 +112,7 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
     
 }
 
-class ContactsRepository : NSObject {
+class ContactsRepository {
     
     var implement:ContactsRepositoryDelegate
     
@@ -127,14 +128,9 @@ class ContactsRepository : NSObject {
     
     
     
-    
-    
-    
-    
-    
     init(implement:ContactsRepositoryDelegate) {
         self.implement = implement
-        super.init()
+        
        
     }
     

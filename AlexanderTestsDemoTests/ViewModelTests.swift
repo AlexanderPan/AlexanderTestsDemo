@@ -196,8 +196,7 @@ class APINetworkLayerFailImplement : ContactsRepositoryDelegate {
 
 class SuccessImplement : ContactsRepositoryDelegate {
     
-    
-    
+
     func contactsListAPI(request: ContactsRequest) -> Observable<ContactsResponse> {
         
         var array = Array<Contacts>()
