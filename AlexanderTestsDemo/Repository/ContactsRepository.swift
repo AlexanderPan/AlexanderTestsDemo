@@ -88,11 +88,11 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
     func contactsListAPI(request: ContactsRequest) -> Observable<ContactsResponse> {
         
         
-        #if UITESTS
+//        #if UITESTS
         if let obj = self.checkFunctionToObject(ContactsResponse.self, functionName: "\(#function)") {
             return Observable.just(obj)
         }
-        #endif
+//        #endif
         return networking.contactsListAPI(request:request)
         
         
@@ -101,11 +101,11 @@ class ContactsRepositoryImplement : ContactsRepositoryDelegate {
     func queryContacts() -> Observable<Array<Contacts>> {
 
         
-        #if UITESTS
+//        #if UITESTS
         if let obj = self.checkFunctionToArray([Contacts].self, functionName: "\(#function)") {
             return Observable.just(obj)
         }
-        #endif
+//        #endif
         return database.queryContacts()
         
     }
